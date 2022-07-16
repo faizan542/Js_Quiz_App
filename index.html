@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz App</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+</head>
+
+<body>
+
+    <div class="text-center p-4">
+        <h1>Quiz Form</h1>
+    </div>
+    <div class="toast container align-items-center text-bg-primary border-0" role="alert" aria-live="assertive"
+        aria-atomic="true">
+        <div class="d-flex">
+            <div class="toast-body" id="toaster_body">
+
+            </div>
+            <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"
+                aria-label="Close"></button>
+        </div>
+    </div>
+
+    <div class="container p-4 w-75 ">
+        <div class="container">
+            <input type="text" class="form-control p-2 m-2" placeholder="Full Name" id="full_name">
+            <input type="text" class="form-control p-2 m-2" placeholder="Father Name" id="father_name">
+            <input type="text" class="form-control p-2 m-2" placeholder="Roll Number" id="roll_num">
+            <input type="text" class="form-control p-2 m-2" placeholder="School Name" id="school_name">
+        </div>
+        <div class="container">
+            <button type="button" class="btn btn-primary m-2" id="btn" onclick="formValidation()">Start Quiz</button>
+        </div>
+    </div>
+
+    <div class="container ">
+        <div id="timer"><span class="float-end">02:00</span></div>
+        <div id="number_of_questions">1 of 3 Questions</div>
+    </div>
+
+    <div id="questions" class="container">
+        
+    </div>
+    <div class="container">
+        <button type="button" class="btn btn-primary m-2" id="next-btn">Next</button>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+        crossorigin="anonymous"></script>
+
+    <script src="app.js"></script>
+</body>
+
+</html>
