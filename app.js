@@ -33,12 +33,12 @@ function formValidation() {
     }
     else if (schoolName.value === "") {
         alert("School Name is required")
-    }else{
-        fullName.remove();
-        fatherName.remove();
-        rollNumber.remove();
-        schoolName.remove();
-        var startQuizButton = document.getElementById("btn").remove();
+    } else {
+        var displayNoneForm = document.getElementById('quiz_form');
+        displayNoneForm.style.display = 'none';
+        var removeFormHeading = document.getElementById('form_heading');
+        removeFormHeading.style.display = 'none';
+        renderQuestion(0)
     }
 }
 
@@ -262,3 +262,88 @@ var questions = [
     },
 
 ]
+
+
+
+function renderQuestion(e) {
+    var questionsDiv = document.getElementById('questions');
+
+    var questionNum = document.createElement('h2');
+    var indexNum = questions.indexOf(questions[e]);
+    var questionNumber = document.createTextNode(`Question ${indexNum + 1} of ${questions.length}`);
+    questionNum.appendChild(questionNumber);
+    questionsDiv.appendChild(questionNum);
+
+    var question = document.createElement('h2');
+    question.setAttribute('class', 'question');
+    var questionText = document.createTextNode(`${questions[e].question}`);
+    question.appendChild(questionText);
+    questionsDiv.appendChild(question);
+
+    var radioBtn1 = document.createElement('input');
+    radioBtn1.setAttribute('type', 'radio');
+    radioBtn1.setAttribute('name', 'selectBtn');
+    radioBtn1.setAttribute('class', 'options');
+    var option1 = document.createElement('span');
+    option1.setAttribute('class', 'optionsName');
+    questionsDiv.appendChild(radioBtn1);
+    questionsDiv.appendChild(option1);
+
+
+    var breakLine1 = document.createElement('br');
+    questionsDiv.appendChild(breakLine1);
+
+    var radioBtn2 = document.createElement('input');
+    radioBtn2.setAttribute('type', 'radio');
+    radioBtn2.setAttribute('name', 'selectBtn');
+    radioBtn2.setAttribute('class', 'options');
+    var option2 = document.createElement('span');
+    option2.setAttribute('class', 'optionsName');
+    questionsDiv.appendChild(radioBtn2);
+    questionsDiv.appendChild(option2);
+
+    var breakLine2 = document.createElement('br');
+    questionsDiv.appendChild(breakLine2);
+
+    var radioBtn3 = document.createElement('input');
+    radioBtn3.setAttribute('type', 'radio');
+    radioBtn3.setAttribute('name', 'selectBtn');
+    radioBtn3.setAttribute('class', 'options');
+    var option3 = document.createElement('span');
+    option3.setAttribute('class', 'optionsName');
+    questionsDiv.appendChild(radioBtn3);
+    questionsDiv.appendChild(option3);
+
+    var breakLine3 = document.createElement('br');
+    questionsDiv.appendChild(breakLine3);
+
+
+    var radioBtn4 = document.createElement('input');
+    radioBtn4.setAttribute('type', 'radio');
+    radioBtn4.setAttribute('name', 'selectBtn');
+    radioBtn4.setAttribute('class', 'options');
+    var option4 = document.createElement('span');
+    option4.setAttribute('class', 'optionsName');
+    questionsDiv.appendChild(radioBtn4);
+    questionsDiv.appendChild(option4);
+
+    var breakLine4 = document.createElement('br');
+    questionsDiv.appendChild(breakLine4);
+
+    var nextBtn = document.createElement('button');
+    var nextBtnText = document.createTextNode("Next");
+    nextBtn.setAttribute('onclick', 'nextQuestion()');
+    nextBtn.appendChild(nextBtnText);
+    questionsDiv.appendChild(nextBtn);
+}
+var options = document.getElementsByClassName('options');
+var optionsNames = document.getElementsByClassName('optionsName');
+
+for (var i = 0; i < options.length; i++) {
+    options[i].value = questions[e].options[i];
+    optionsNames[i].innerHTML = questions[e].options[i];
+}
+
+function nextButton() {
+    
+}
