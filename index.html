@@ -30,10 +30,10 @@
 
     <div class="container p-4 w-75" id="quiz_form">
         <div class="container">
-            <input type="text" class="form-control p-2 m-2" placeholder="Full Name" id="full_name">
-            <input type="text" class="form-control p-2 m-2" placeholder="Father Name" id="father_name">
-            <input type="text" class="form-control p-2 m-2" placeholder="Roll Number" id="roll_num">
-            <input type="text" class="form-control p-2 m-2" placeholder="School Name" id="school_name">
+            <input type="text" class="form-control p-2 m-2 input" placeholder="Full Name" id="full_name" autocomplete="off">
+            <input type="text" class="form-control p-2 m-2 input" placeholder="Father Name" id="father_name" autocomplete="off">
+            <input type="text" class="form-control p-2 m-2 input" placeholder="Roll Number" id="roll_num" autocomplete="off">
+            <input type="text" class="form-control p-2 m-2 input" placeholder="School Name" id="school_name" autocomplete="off">
         </div>
         <div class="container">
             <button type="button" class="btn btn-primary m-2" id="btn" onclick="formValidation()">Start Quiz</button>
@@ -52,6 +52,10 @@
     </div>
     <div class="container">
         <!-- <button type="button" class="btn btn-primary m-2" id="next-btn">Next</button> -->
+    </div>
+
+    <div id="result">
+
     </div>
 
 
