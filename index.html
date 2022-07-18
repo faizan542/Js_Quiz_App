@@ -15,7 +15,7 @@
 <body>
 
     <div class="text-center p-4" id="form_heading">
-        <h1>Quiz Form</h1>
+        <h1 class="heading">Quiz Form</h1>
     </div>
     <div class="toast container align-items-center text-bg-primary border-0" role="alert" aria-live="assertive"
         aria-atomic="true">
@@ -28,26 +28,27 @@
         </div>
     </div>
 
-    <div class="container p-4 w-75" id="quiz_form">
-        <div class="container">
-            <input type="text" class="form-control p-2 m-2 input" placeholder="Full Name" id="full_name" autocomplete="off">
-            <input type="text" class="form-control p-2 m-2 input" placeholder="Father Name" id="father_name" autocomplete="off">
-            <input type="text" class="form-control p-2 m-2 input" placeholder="Roll Number" id="roll_num" autocomplete="off">
-            <input type="text" class="form-control p-2 m-2 input" placeholder="School Name" id="school_name" autocomplete="off">
+    <div class="container p-4 " id="quiz_form">
+        <div class="container  input_div">
+            <input type="text" class="form-control my-2 input" placeholder="Full Name" id="full_name" autocomplete="off">
+            <input type="text" class="form-control my-2 input" placeholder="Father Name" id="father_name" autocomplete="off">
+            <input type="text" class="form-control my-2 input" placeholder="Roll Number" id="roll_num" autocomplete="off">
+            <input type="text" class="form-control my-2 input" placeholder="School Name" id="school_name" autocomplete="off">
         </div>
-        <div class="container">
-            <button type="button" class="btn btn-primary m-2" id="btn" onclick="formValidation()">Start Quiz</button>
+        <div class="container text-end">
+            <button type="button" class="btn btn-primary m-2" id="btn" onclick="formValidation(), startTimer()">Start Quiz</button>
         </div>
     </div>
 
-    <!-- <div class="container ">
+    <div class="container ">
 
-        <div id="timer" class="float-end"></div>
         
-        <div id="number_of_questions"></div>
-    </div> -->
-
+    </div>
+    
     <div class="container p-5" id="questions">
+        <div id="timer" class="float-end">
+            <span id="minute"></span><span id="second"></span>
+        </div>
 
     </div>
     <div class="container">
