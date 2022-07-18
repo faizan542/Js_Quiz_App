@@ -38,6 +38,7 @@ function formValidation() {
         displayNoneForm.style.display = 'none';
         var removeFormHeading = document.getElementById('form_heading');
         removeFormHeading.style.display = 'none';
+
         renderQuestion(0)
     }
 }
@@ -450,10 +451,59 @@ function nextQuestion() {
 
 function result(){
    var getResult = document.getElementById('result');
-   
    var userName = document.createElement('h2');
-
    var getUserName = document.createTextNode(`${fullName.value}, you got ${score} out of 100`);
    userName.appendChild(getUserName)
    getResult.appendChild(userName)
+}
+
+var minutes = 2;
+var seconds = 60;
+var interval = ""
+
+function timer(){
+    var getMinute = document.getElementById('minute');
+    var getSecond = document.getElementById('second');
+
+    seconds--
+    getSecond.innerHTML = seconds;
+
+    getMinute.innerHTML = `${minutes}:`
+
+    if (minutes === 0) {
+        if (minutes === 0 && seconds === 0) {
+            minutes++
+            getMinute.innerHTML = "00:"
+            clearInterval(interval)
+            questionsDiv.innerHTML = ""
+
+            result()
+        }
+    }
+
+    if (minutes < 10) {
+        getMinute.innerHTML = `0${minutes}:`
+    }
+ 
+    if (minutes > 0 && seconds === 60) {
+        getSecond.innerHTML = "00"
+    }
+
+    if (seconds === 0) {
+        minutes--
+        getMinute.innerHTML = `${minutes}:`
+        seconds = 60
+        if (seconds === 60) {
+            getSecond.innerHTML = "00"
+        }
+    }
+    if (seconds < 10) {
+        getSecond.innerHTML = `0${seconds}`
+    }
+
+}
+
+function startTimer() {
+    interval = setInterval(timer, 1000)
+
 }
