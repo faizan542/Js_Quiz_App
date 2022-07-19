@@ -1,3 +1,26 @@
+body{
+    background: linear-gradient(to left,#ebf5f0,#75ffba);
+}
+
+#quiz_form{
+    background-color: antiquewhite;
+    border-radius: 20px;
+    max-width: 500px;
+}
+
+.input_div, input{
+    text-align: center;
+    font-weight: 500 !important;
+}
+
+.heading{
+    color: #3e7bed;
+}
+
 .question{
     color: blue;
+}
+
+#timer{
+    display: none;
 }
