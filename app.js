@@ -40,6 +40,8 @@ function formValidation() {
         removeFormHeading.style.display = 'none';
 
         renderQuestion(0)
+        var timer = document.getElementById('timer');
+        timer.style.display = "block"
     }
 }
 
@@ -264,10 +266,9 @@ var questions = [
 
 ]
 
-var score = 0
-var answer = ""
-// var userName = ""
-var usersSelectedAnswers = []
+var score = 0;
+var answer = "";
+var usersSelectedAnswers = [];
 var questionsDiv = document.getElementById('questions');
 
 
@@ -389,6 +390,7 @@ function renderQuestion(e) {
         var nextBtn = document.createElement('button');
         var nextBtnText = document.createTextNode("Next");
         nextBtn.setAttribute('onclick', 'nextQuestion()');
+        nextBtn.setAttribute('class', 'btn btn-primary my-2')
         nextBtn.appendChild(nextBtnText);
         questionsDiv.appendChild(nextBtn);
     }
@@ -400,12 +402,13 @@ function renderQuestion(e) {
         options[i].value = questions[e].options[i];
         optionsNames[i].innerHTML = questions[e].options[i];
     }
+
+    startTimer()
 }
 
 function checkCorrectAnswer(ind, ans) {
     if (questions[ind].correctAnswer === ans) {
         score = score + 5;
-        console.log(score);
     }
 }
 
@@ -420,12 +423,9 @@ function nextQuestion() {
             if (questionCount === questions.length - 1) {
                 answer = selector[i].value
                 usersSelectedAnswers.push(selector[i].value)
-                console.log(selector[i].value)
+                // console.log(selector[i].value)
                 checkCorrectAnswer(questionCount, answer)
                 questionsDiv.innerHTML = ""
-
-
-                alert("completed")
                 result();
 
                 return;
@@ -435,7 +435,7 @@ function nextQuestion() {
             else {
                 answer = selector[i].value
                 usersSelectedAnswers.push(selector[i].value)
-                console.log(selector[i].value)
+                // console.log(selector[i].value)
                 selector[i].checked = false
                 questionsDiv.innerHTML = ""
                 checkCorrectAnswer(questionCount, answer)
@@ -449,49 +449,42 @@ function nextQuestion() {
 }
 
 
-function result(){
-   var getResult = document.getElementById('result');
-   var userName = document.createElement('h2');
-   var getUserName = document.createTextNode(`${fullName.value}, you got ${score} out of 100`);
-   userName.appendChild(getUserName)
-   getResult.appendChild(userName)
+function result() {
+    var getResult = document.getElementById('result');
+    var userName = document.createElement('h2');
+    var getUserName = document.createTextNode(`${fullName.value}, you got ${score} out of 100`);
+    userName.appendChild(getUserName)
+    getResult.appendChild(userName)
 }
 
 var minutes = 2;
 var seconds = 60;
 var interval = ""
 
-function timer(){
+function timer() {
     var getMinute = document.getElementById('minute');
     var getSecond = document.getElementById('second');
 
     seconds--
     getSecond.innerHTML = seconds;
+    getMinute.innerHTML = minutes;
 
-    getMinute.innerHTML = `${minutes}:`
-
-    if (minutes === 0) {
-        if (minutes === 0 && seconds === 0) {
-            minutes++
-            getMinute.innerHTML = "00:"
-            clearInterval(interval)
-            questionsDiv.innerHTML = ""
-
-            result()
-        }
+    if (minutes === 0 && seconds === 0) {
+        getSecond.innerHTML = "00";
+        getMinute.innerHTML = "00";
+        clearInterval(interval);
+        questionsDiv.innerHTML = "";
+        result()
     }
+
 
     if (minutes < 10) {
-        getMinute.innerHTML = `0${minutes}:`
-    }
- 
-    if (minutes > 0 && seconds === 60) {
-        getSecond.innerHTML = "00"
+        getMinute.innerHTML = `0${minutes}`
     }
 
     if (seconds === 0) {
         minutes--
-        getMinute.innerHTML = `${minutes}:`
+        getMinute.innerHTML = `0${minutes}`
         seconds = 60
         if (seconds === 60) {
             getSecond.innerHTML = "00"
