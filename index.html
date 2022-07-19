@@ -30,51 +30,28 @@
 
     <div class="container p-4 " id="quiz_form">
         <div class="container  input_div">
-            <input type="text" class="form-control my-2 input" placeholder="Full Name" id="full_name" autocomplete="off">
-            <input type="text" class="form-control my-2 input" placeholder="Father Name" id="father_name" autocomplete="off">
-            <input type="text" class="form-control my-2 input" placeholder="Roll Number" id="roll_num" autocomplete="off">
-            <input type="text" class="form-control my-2 input" placeholder="School Name" id="school_name" autocomplete="off">
+            <input type="text" class="form-control my-2 input" placeholder="Full Name" id="full_name"
+                autocomplete="off">
+            <input type="text" class="form-control my-2 input" placeholder="Father Name" id="father_name"
+                autocomplete="off">
+            <input type="text" class="form-control my-2 input" placeholder="Roll Number" id="roll_num"
+                autocomplete="off">
+            <input type="text" class="form-control my-2 input" placeholder="School Name" id="school_name"
+                autocomplete="off">
         </div>
         <div class="container text-end">
-            <button type="button" class="btn btn-primary m-2" id="btn" onclick="formValidation(), startTimer()">Start Quiz</button>
+            <button type="button" class="btn btn-primary m-2" id="btn" onclick="formValidation()">Start
+                Quiz</button>
         </div>
     </div>
 
-    <div class="container ">
-
-        
-    </div>
-    
     <div class="container p-5" id="questions">
         <div id="timer" class="float-end">
-            <span id="minute"></span><span id="second"></span>
+            <span id="minute">03</span>:<span id="second">00</span>
         </div>
-
-    </div>
-    <div class="container">
-        <!-- <button type="button" class="btn btn-primary m-2" id="next-btn">Next</button> -->
     </div>
 
-    <div id="result">
-
-    </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    <div id="result"></div>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
