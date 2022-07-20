@@ -40,6 +40,7 @@ function formValidation() {
         removeFormHeading.style.display = 'none';
 
         renderQuestion(0)
+        startTimer()
         var timer = document.getElementById('timer');
         timer.style.display = "block"
     }
@@ -403,7 +404,6 @@ function renderQuestion(e) {
         optionsNames[i].innerHTML = questions[e].options[i];
     }
 
-    startTimer()
 }
 
 function checkCorrectAnswer(ind, ans) {
@@ -452,6 +452,7 @@ function nextQuestion() {
 function result() {
     var getResult = document.getElementById('result');
     var userName = document.createElement('h2');
+    userName.setAttribute('class', 'container p-4')
     var getUserName = document.createTextNode(`${fullName.value}, you got ${score} out of 100`);
     userName.appendChild(getUserName)
     getResult.appendChild(userName)
@@ -470,8 +471,8 @@ function timer() {
     getMinute.innerHTML = minutes;
 
     if (minutes === 0 && seconds === 0) {
-        getSecond.innerHTML = "00";
-        getMinute.innerHTML = "00";
+        seconds = "0";
+        minutes = "0";
         clearInterval(interval);
         questionsDiv.innerHTML = "";
         result()
